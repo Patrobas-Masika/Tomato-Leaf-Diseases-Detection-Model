@@ -82,6 +82,37 @@ The first code section provides a list for the available models in the TF2 Model
 <br><br>
 <img src="https://imgur.com/rrKebvB.png">
 <img src="https://imgur.com/gXVpnC5.png">
+<br><br>
+Now, proceed by adjusting the configuration file to incorporate the necessary training parameters. In this context, these parameters are the <b>num_steps</b> and <b>batch_size</b>. The <b>num_steps</b> parameter signifies the total number of steps required for model training. The greater the number of steps, the longer the training process will extend. It's important to stay attentive to when the loss curve starts to level off. Once this occurs, you can halt the training, even if all the steps have not been completed.<br>
+The <b>batch_size</b> parameter indicates the quantity of images utilized in each individual training step. The larger the batch size, the fewer overall steps the training will encompass. However, this size is constrained by the available GPU memory. In this specific instance, considering the project's execution on Google Colab, a batch size of 4 would be optimal for efficientdet-d0 models.<br><br>
+<img src="https://imgur.com/rM9vMPC.png">
+<br><br>
+Next, set the location of the pretrained model file, the config file, and total number of classes.
+<br><br>
+<img src="https://imgur.com/61yB3Kg.png">
+<br><br>
+Moving forward, rewrite the configuration file to incorporate the training parameters you've recently defined. The subsequent code segment will automatically substitute the required parameters in the downloaded .config file and then save it as a customized "pipeline_file.config" file.
+<br><br>
+<img src="https://imgur.com/Lu4XWaQ.png">
+<img src="https://imgur.com/Zz0BCpq.png">
+<br><br>
+If you want, you can run the following section to display the contents of the configuration file.
+<br><br>
+<img src="https://imgur.com/El6dHq0.png">
+<br><br>
+Now, set the locations of the configuration file and model output directory as variables so that you can be able to reference them later when you call the training command.
+<br><br>
+<img src="https://imgur.com/UKKo8q4.png">
+<br><br>
+</p>
+
+<h3>5. Training TFLite Detection Model</h3>
+<p align="justify">
+The moment has arrived to commence training your model. For monitoring the training progress, initiate a TensorBoard session using the following code snippet. The display will become active only once training has initiated. Once you've initiated the training process, return and click the refresh button on the TensorBoard interface.<br><br>
+<b>Note:</b> The TensorBoard exhibits log messages every 100 steps. Consequently, please allow it some time before it begins to showcase content.
+<br><br>
+<img src="https://imgur.com/JD3oAqw.png">
+<br><br>
 </p>
 
 
