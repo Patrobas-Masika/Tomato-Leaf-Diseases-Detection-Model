@@ -8,21 +8,17 @@ The project was designed to create a model for the detection of diseases on toma
 To see the inspiration for this project, check out this <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb">one</a>
 
 </p>
-<br />
+<br/>
 
+<h2>Language Used</h2>
 
-<h2>Languages and Utilities Used</h2>
+- <b>Python</b> 
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+<h2>Project Walk-Through:</h2>
+<p align="justify"
 
-<h2>Environments Used </h2>
+The project was done using Google Colab. If you have no experience with the cloud-based platform, check out this <a href:="https://www.youtube.com/watch?v=agj3AxNPDWU&list=PLA83b1JHN4ly56Y7o6vDAT8Szxc3_EdRH">video series</a> for an introduction on how to navigate it.
 
-- <b>Windows 10</b> (21H2)
-
-<h2>Program walk-through:</h2>
-
-<p align="center">
 Launch the utility: <br/>
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
