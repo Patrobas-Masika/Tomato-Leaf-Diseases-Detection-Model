@@ -78,9 +78,8 @@ Execute the two code segments below. This action will generate TFRecord files fo
 <h3>4. Setting Up Training Configuration</h3>
 <p align="justify">
 In this section, we'll establish the model and configure the training settings. We will indicate the specific pre-trained model from the TensorFlow 2 Object Detection Zoo that we are going to use. Each model has an accompanying configuration file which specifies the location, configures training parameters i.e., learning rate and number of training steps, and more. <br><br>
-The first code section provides a list for the available models in the TF2 Model Zoo. It also defines the various filenames which are going to be use to download the model and configuration files. For this training, the model used was the efficientdet-d0 model. <br><br>
-The second section is used to download the pre-trained model and the configuration file.
-
+The first code section provides a list for the available models in the TF2 Model Zoo. It also defines the various filenames which are going to be use to download the model and configuration files. For this training, the model used was the efficientdet-d0 model. The second section is used to download the pre-trained model and the configuration file.
+<br><br>
 <img src="https://imgur.com/rrKebvB.png">
 <img src="https://imgur.com/gXVpnC5.png">
 </p>
