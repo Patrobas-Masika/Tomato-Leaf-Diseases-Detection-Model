@@ -5,7 +5,7 @@
 
 The project was designed to create a model for the detection of diseases on tomato leaves. This would involve identifying whether a leaf is healthy or unhealthy. The model was developed using the Tensorflow 2 Object Detection API, which was utilized to train an EfficientDet model. This model was later converted into a TFLite format, enabling it to be deployed on edge devices such as Raspberry Pi. The custom dataset, comprising 4358 images (3488 for training, 435 for validation, and 435 for testing), was obtained from Kaggle. Annotation of the dataset was performed by creating bounding boxes using the LabelImg application program.
 
-To see the inspiration for this project, check out this <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb">project</a>
+To see the inspiration for this project, check out this <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb">one</a>
 
 </p>
 <br />
