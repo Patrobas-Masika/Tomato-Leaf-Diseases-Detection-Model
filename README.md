@@ -17,7 +17,7 @@ To see the inspiration for this project, check out this <a href="https://github.
 <h2>Project Walk-Through:</h2>
 <p align="justify"
 
-The project was done using Google Colab. If you have no experience with the cloud-based platform, check out this <a href:="https://www.youtube.com/watch?v=agj3AxNPDWU&list=PLA83b1JHN4ly56Y7o6vDAT8Szxc3_EdRH">video series</a> for an introduction on how to navigate it.
+The project was done using Google Colab. If you have no experience with the cloud-based platform, check out this <a href="https://www.youtube.com/watch?v=agj3AxNPDWU&list=PLA83b1JHN4ly56Y7o6vDAT8Szxc3_EdRH">video series</a> for an introduction on how to navigate it.
 
 Launch the utility: <br/>
 <img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
