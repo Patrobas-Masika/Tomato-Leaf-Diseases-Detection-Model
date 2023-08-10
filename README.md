@@ -3,9 +3,11 @@
 <h2>Description</h2>
 <p align="justify"
 
-The project was designed to create a model for the detection of diseases on tomato leaves. This would involve identifying whether a leaf is healthy or unhealthy. The model was developed using the Tensorflow 2 Object Detection API, which was utilized to train an EfficientDet model. This model was later converted into a TFLite format, enabling it to be deployed on edge devices such as Raspberry Pi. The custom dataset, comprising 4358 images (3488 for training, 435 for validation, and 435 for testing), was obtained from Kaggle. Annotation of the dataset was performed by creating bounding boxes using the LabelImg application program.
+The project was designed to create a model for the detection of diseases on tomato leaves. This would involve identifying whether a leaf is healthy or unhealthy. The model was developed using the TensorFlow 2 Object Detection API, which was utilized to train an EfficientDet model. This model was later converted into a TFLite format, enabling it to be deployed on edge devices such as Raspberry Pi. The custom dataset, comprising 4358 images (3488 for training, 435 for validation, and 435 for testing), was obtained from Kaggle. Annotation of the dataset was performed by creating bounding boxes using the LabelImg application program.
 
 To see the inspiration for this project, check out this <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb">one</a>
+
+<b>Note:</b> This description contains snippets of the code in image form. Open the AUGV_Object_Detection_Model.ipynb file (check repository files for it) for the code and to follow through.
 
 </p>
 <br/>
@@ -16,43 +18,72 @@ To see the inspiration for this project, check out this <a href="https://github.
 
 <h2>Project Walk-Through:</h2>
 <p align="justify"
-
-The project was done using Google Colab. If you have no experience with the cloud-based platform, check out this <a href="https://www.youtube.com/watch?v=agj3AxNPDWU&list=PLA83b1JHN4ly56Y7o6vDAT8Szxc3_EdRH">video series</a> for an introduction on how to navigate it.
-
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ 
+The project was done using Google Colab. If you have no experience with the cloud-based platform, check out this <a href="https://www.youtube.com/watch?v=agj3AxNPDWU&list=PLA83b1JHN4ly56Y7o6vDAT8Szxc3_EdRH">video series</a> for an introduction on how to navigate it. 
 </p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+<p align="justify"
+
+As explained earlier, the dataset was annotated using the LabelImg application program. To understand how to use it as well, <a href="https://www.youtube.com/watch?v=fjynQ9P2C08">watch this video</a>. Ensure the images are annotated in PascalVOC format so that for each of the images a .xml file is created. Split the images (and their subsequent .xml files) into Train, Validation, and Test folders. A practical suggestion would be to have 80% of the images in the Train folder and 10% of them in both the Validation and Test folders. Zip them into a folder and name it "Dataset" (without the quotes). Upload the zip folder to the Google Drive associated with the same email address that you are using for Colab. <br><br>
+If you need an already prepared dataset for this project, download <a href="https://drive.google.com/file/d/1jPbRL7j4_teEp_mG8tIC-XqJNeN2cWav/view?usp=sharing">Dataset.zip</a>.
+</p>
+
+<h3>1. Installing TensorFlow Object Detection Dependencies</h3>
+<p align="justify"
+ 
+We first set up the TensorFlow Object Detection API. We'll do this by cloning the TensorFlow models repository and executing a few installation commands. 
+<br/>
+</p>
+
+<b>Note:</b> This Colab has been set to use TF v2.8.0.
+<img src="https://i.imgur.com/DVi73Fr.png"/>
+<img src="https://i.imgur.com/Lx69yUO.png"/>
+<img src="https://i.imgur.com/mqJ4Pei.png"/>
+<img src="https://i.imgur.com/DiCF9QN.png"/>
+
+Warnings or errors related to package dependencies in the preceding code block might arise but you can disregard them.<br><br>
+Run the following code block to confirm if everything is working correctly. Confirm there are no errors.
+
+<img src="https://i.imgur.com/eZKNXEL.png"/>
+
+<h3>2. Uploading the Dataset to Colab</h3>
+
+Upload the dataset to Colab
+
+<img src="https://i.imgur.com/hVeEnWW.png"/>
+
+Make a folder on Colab and name it "Dataset" (without the quotes). Unzip the "Dataset.zip" folder into the "Dataset" folder.
+
+<img src="https://i.imgur.com/Z31Cij0.png"/>
+
+<h3>3. Creating Labelmap File and TFRecords</h3>
+<p align="justify"
+ 
+In this section, you'll generate a labelmap file for the detector and transform the images into a data file format known as TFRecord, which TensorFlow uses for training. There are existing Python scripts available that facilitate the automatic conversion of data into TFRecord format. <br><br>
+First, download and run the data conversion script by running the following section of code.
+
+<img src="https://imgur.com/hL5k0T0.png"/>
+
+Next, create a labelmap.txt file to distinguish between the healthy and unhealthy classes.
+
+<img src="https://live.staticflickr.com/65535/53106500866_7e9127f705_b.jpg"/>
+
+Then, download and upload <a href="https://drive.google.com/file/d/12nsh-EtKV2m5frNECClrVWOw3Az-HZNd/view?usp=sharing">create_csv1.py</a> into your Google Drive folder.<br><br>
+Execute the two code segments below. This action will generate TFRecord files for both the training and validation datasets, along with a labelmap.pbtxt file that holds the labelmap in an alternate format.
+
+<img src="https://imgur.com/AzxP2yt.png"/>
+<img src="https://imgur.com/JVvs4kV.png"/>
+</p>
+
+<h3>4. Setting Up Training Configuration</h3>
+<p align="justify">
+In this section, we'll establish the model and configure the training settings. We will indicate the specific pre-trained model from the TensorFlow 2 Object Detection Zoo that we are going to use. Each model has an accompanying configuration file which specifies the location, configures training parameters i.e., learning rate and number of training steps, and more. <br><br>
+The first code section provides a list for the available models in the TF2 Model Zoo. It also defines the various filenames which are going to be use to download the model and configuration files. For this training, the model used was the efficientdet-d0 model. <br><br>
+The second section is used to download the pre-trained model and the configuration file.
+
+<img src="https://imgur.com/rrKebvB.png">
+<img src="https://imgur.com/gXVpnC5.png">
+</p>
+
+
+
