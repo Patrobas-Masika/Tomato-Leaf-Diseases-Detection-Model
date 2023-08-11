@@ -163,7 +163,7 @@ In the following block of code, you will be able to replicate the repository and
 <br><br>
 <img src="https://imgur.com/V343ZFW.png">
 <br><br>
-Next, proceed to copy both the images and annotation data from the test folder into the designated directories within the cloned repository. This collection will serve as the reference data against which your model's detection results will be evaluated.
+Next, proceed to copy both the images and annotation data from the test folder into the designated directories within the cloned repository. This collection will serve as the reference data against which your model's detection results will be evaluated
 <br><br>
 <img src="https://imgur.com/W2xejBT.png">
 <br><br>
