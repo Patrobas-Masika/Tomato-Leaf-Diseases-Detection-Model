@@ -3,7 +3,7 @@
 <h2>Description</h2>
 <p align="justify"
 
-The project was designed to create a model for the detection of diseases on tomato leaves. This would involve identifying whether a leaf is healthy or unhealthy. The model was developed using the TensorFlow 2 Object Detection API, which was utilized to train an EfficientDet model. This model was later converted into a TFLite format, enabling it to be deployed on edge devices such as Raspberry Pi. The custom dataset, comprising 4358 images (3488 for training, 435 for validation, and 435 for testing), was obtained from Kaggle. Annotation of the dataset was performed by creating bounding boxes using the LabelImg application program.
+The project was designed to create a model for the detection of diseases on tomato leaves. This would involve identifying whether a leaf is healthy or unhealthy. The model was developed using the TensorFlow 2 Object Detection API, which was utilized to train an EfficientDet model. This model was later converted into a TFLite format, enabling it to be deployed on <a href="https://www.youtube.com/watch?v=cEOUeItHDdo">edge devices</a> such as Raspberry Pi. The custom dataset, comprising 4358 images (3488 for training, 435 for validation, and 435 for testing), was obtained from Kaggle. Annotation of the dataset was performed by creating bounding boxes using the LabelImg application program.
 
 To see the inspiration for this project, check out this <a href="https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb">one</a>
 
@@ -113,7 +113,63 @@ The moment has arrived to commence training your model. For monitoring the train
 <br><br>
 <img src="https://imgur.com/JD3oAqw.png">
 <br><br>
+The process of training the model involves using the "model_main_tf2.py" script found within the TF Object Detection API. Run the following code section to begin training.
+<br><br>
+<img src="https://imgur.com/UrGWkUv.png">
+<br><br>
+In case you intend to conclude the training before its normal course, you can click the "Stop" button a couple of times or right-click on the code block and choose "Interrupt Execution." Alternatively, if you let it be, the training will stop on its own once it completes the specified number of training steps.
 </p>
+
+<h3>6. Converting Model to TFLite</h3>
+<p align="justify">
+Now that the model has been trained, in this segment, your objective is to convert the model graph (a file holding architecture and weight information) into a format suitable for TensorFlow Lite. This task is executed by using the <b>export_tflite_graph_tf2.py</b> script.
+<br><br>
+<img src="https://imgur.com/AK5pCL4.png">
+<br><br>
+Taking the exported graph, use the <b>TFLiteConverter</b> module to convert it to a <b>.tflite</b> Flatbuffer format.
+<br><br>
+<img src="https://imgur.com/Zlch3u1.png">
+<br><br>
+</p>
+
+<h3>7. Downloading TFLite Model</h3>
+<p align="justify">
+To download the TFLite model for use on an edge device, run the following two sections. The first section copies the labelmap files into the model folder then compresses it into a zip folder. The second section allows you to download the zip folder. It contains the <b>detect.tflite</b> and the <b>labelmap.txt</b> files.
+<br><br>
+<img src="https://imgur.com/j8Vm4KF.png">
+<img src="https://imgur.com/Wrleb57.png">
+<br><br>
+</p>
+
+<h3>8. Testing the TensorFlow Lite Model and Calculating mAP</h3>
+<p align="justify">
+To evaluate the model's performance, the images stored in the test folder will be passed through it. This step is essential because the model hasn't been exposed to these specific images before. In the following section, the images, model, and labelmap will be loaded. Then, the model will be applied to each image, producing results that will be displayed. Furthermore, the detection results will be saved as text files, facilitating the calculation of the overall mAP (mean Average Precision) score.
+<br><br>
+<img src="https://imgur.com/yZFyGBt.png">
+<img src="https://imgur.com/5c80oe6.png">
+<img src="https://imgur.com/bhXAEzf.png">
+<img src="https://imgur.com/ZAC9C0r.png">
+<br><br>
+In the following segment, the test image and model paths are configured, followed by the execution of the inference function.
+<br><br>
+<img src="https://imgur.com/XAWk1Bg.png">
+<br><br>
+</p>
+
+<h4>Calculating mAP</h4>
+<p align="justify">
+For this section, you'll be able to calculate your model's mean average precision (mAP). To understand what mAP is, <a href="https://www.youtube.com/watch?v=oqXDdxF_Wuw">watch this video</a>. The mAP calculator at <a href="https://github.com/Cartucho/mAP">https://github.com/Cartucho/mAP</a> is what is going to be used to calculate the model's mAP score.<br><br>
+In the following block of code, you will be able to replicate the repository and delete its existing data. You'll also be able to download a script that <a href="https://github.com/EdjeElectronics">Edje Electronics</a> created to interface with the calculator.
+<br><br>
+<img src="https://imgur.com/V343ZFW.png">
+<br><br>
+Next, proceed to copy both the images and annotation data from the test folder into the designated directories within the cloned repository. This collection will serve as the reference data against which your model's detection results will be evaluated.
+<br><br>
+<img src="https://imgur.com/W2xejBT.png">
+<br><br>
+</p>
+
+
 
 
 
