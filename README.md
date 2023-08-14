@@ -167,6 +167,11 @@ Next, proceed to copy both the images and annotation data from the test folder i
 <br><br>
 <img src="https://imgur.com/W2xejBT.png">
 <br><br>
+The calculator tool expects annotation data in a different format compared to the PascalVOC .xml format you are currently using. To convert it to the more suitable .txt format, execute the script called <b>convert_gt_xml.py</b> using the subsequent code block.
+<br><br>
+<img src="Insert Image URL">
+<br><br>
+With the ground truth data now set up, up next you'll need the actual detection results from your model. This will be compared to the ground truth data
 </p>
 
 
