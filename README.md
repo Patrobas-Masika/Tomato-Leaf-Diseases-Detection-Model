@@ -169,12 +169,18 @@ Next, proceed to copy both the images and annotation data from the test folder i
 <br><br>
 The calculator tool expects annotation data in a different format compared to the PascalVOC .xml format you are currently using. To convert it to the more suitable .txt format, execute the script called <b>convert_gt_xml.py</b> using the subsequent code block.
 <br><br>
-<img src="Insert Image URL">
+<img src="https://imgur.com/jOIgSUl.png">
 <br><br>
-With the ground truth data now set up, up next you'll need the actual detection results from your model. This will be compared to the ground truth data
+Now that the ground truth data has been prepared, your subsequent task involves obtaining the real detection outcomes produced by your model. These outcomes will be juxtaposed with the ground truth data to compute the model's mAP accuracy. In the subsequent code segment, you will be able to produce detection data for all the images located in the <b>Test</b> directory. The resulting detection outcomes will be stored within the <b>detection-results</b> folder.
+<br><br>
+<img src="https://imgur.com/pMWe8dF.png">
+<br><br>
+To calculate mAP, please execute the following two code blocks. They will provide individual mAP values for each class as well as an overall mAP score.<br><br>
+<b>Note:</b> The score needs to be higher than 50% (0.50). If it falls below this threshold, you have the option to enhance your model's accuracy by incorporating additional images.
+<br><br>
+<img src="https://imgur.com/0hLlb18.png">
+<img src="https://imgur.com/Y8JHblb.png">
+<br><br>
 </p>
-
-
-
 
 
